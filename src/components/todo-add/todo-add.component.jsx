@@ -1,27 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../../redux/todo/todo.actions'
+import uuid from 'uuid';
 
 const AddTodo = ({ dispatch }) => {
-  let input = ''
+  const [task, setTask] = useState('');
 
   const onSubmit = e => {
     e.preventDefault()
 
-    if (!input.value.trim()) {
-      return
+    if (task === '') {
+      return;
+    } else {
+      const newTask = {
+        id: uuid.v4(),
+        text: task,
+        completed: false
+      }
+      dispatch(addTodo(newTask))
+      
+      // Clear form after dispatch
+      setTask('');
     }
-    dispatch(addTodo(input.value))
-    input.value = ''
+
   }
   
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input ref={node => input = node} />
-        <button type="submit">
-          Add Todo
-        </button>
+        <input type="text" name="task" value={task} onChange={e => setTask(e.target.value)} />
+        <button type="submit">Add Todo</button>
       </form>
     </div>
   )

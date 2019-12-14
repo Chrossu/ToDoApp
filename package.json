@@ -15,7 +15,8 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "sass": "^1.23.7"
+    "sass": "^1.23.7",
+    "uuid": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",

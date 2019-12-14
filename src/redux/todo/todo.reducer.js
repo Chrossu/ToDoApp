@@ -1,17 +1,15 @@
 import { ADD_TODO, TOGGLE_TODO } from './todo.types'
 
-const todos = (state = [], action) => {
+const initialState = []
+
+const todos = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [
         ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false
-        }
+        action.payload
       ]
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       return state.map(todo =>
         (todo.id === action.id)
           ? {...todo, completed: !todo.completed}

@@ -1,8 +1,13 @@
+import React from 'react';
 import { connect } from 'react-redux'
 
-import { setVisibilityFilter } from '../redux/filter/filter.actions'
-import Link from '../components/Link'
+import { setVisibilityFilter } from '../../redux/filter/filter.actions'
 
+const Link = ({ isActive, children, setFilter }) => (
+  <button onClick={setFilter} disabled={isActive}>
+    {children}
+  </button>
+)
 const mapStateToProps = (state, ownProps) => ({
   isActive: ownProps.filter === state.filter
 })

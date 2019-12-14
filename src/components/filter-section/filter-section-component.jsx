@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterLink from '../../containers/FilterLink';
+import FilterLink from '../filter-button/filter-button.component';
 import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../../redux/filter/filter.types';
 
 const Footer = () => (
