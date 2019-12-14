@@ -3,6 +3,6 @@ import todosReducer from './todo/todo.reducer'
 import visibilityFilterReducer from './filter/filter.reducer'
 
 export default combineReducers({
-  todosReducer,
-  visibilityFilterReducer
+  todo: todosReducer,
+  filter: visibilityFilterReducer
 })
