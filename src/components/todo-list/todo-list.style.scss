@@ -1,10 +1,12 @@
 .todo-list {
   position: relative;
   padding: 10px;
+  padding-bottom: 50px;
   bottom: 0;
   height: 90vh;
   width: 100%;
-  background: #eeeeee;
+  background: #f0f0f0;
+  overflow: scroll;
 
   .title {
     color: #444;

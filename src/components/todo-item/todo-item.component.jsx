@@ -5,10 +5,10 @@ import { ReactComponent as CircleTodo } from '../../assets/circleTodo.svg'
 import './todo-item.style.scss';
 
 const TodoItem = ({ onClick, completed, text }) => (
-  <div className="todo-item">
+  <div className={`todo-item ${completed ? 'completed' : ''}`}>
       <CircleTodo onClick={onClick} className="circle-todo" />
-      <li className={`${completed && 'line-through'}`}>
-        <span className="lt">{text}</span>
+      <li>
+        {text}
       </li>
   </div>
 )
