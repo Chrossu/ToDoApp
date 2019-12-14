@@ -9,20 +9,45 @@
   border-radius: 5px;
   color: #222;
 
-  .circle-todo {
-    min-height: 20px;
-    min-width: 20px;
-    margin: 0 10px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    z-index: 2;
+  .left-container {
+    display: flex;
+    width: 85%;
+    height: 100%;
 
-    &:active {
-      background-color: #50d8af;
+    .circle-todo {
+      min-height: 20px;
+      min-width: 20px;
+      margin: 0 10px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      z-index: 2;
+  
+      &:active {
+        background-color: #50d8af;
+      }
     }
   }
 
-  // Border left color for every n even and odd list item
+  .right-container {
+    width: 15%;
+
+    .list {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .cancel-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    z-index: 999;
+    fill: #888;
+  }
+
+  // Border left and circle color for every n even and odd list item
   &:nth-child(1n) {
     border-left: 2px solid #50d8af;
 
@@ -48,13 +73,13 @@
   }
 
   &:nth-child(3n) {
-    border-left: 2px solid #87ddda;
+    border-left: 2px solid #0C2E8A;
 
     .circle-todo {
-      fill: #87ddda;
+      fill: #0C2E8A;
 
       &:active {
-        background-color: #87ddda;
+        background-color: #0C2E8A;
       }
     }
   }
@@ -71,6 +96,7 @@
     }
   }
 
+  // Effect when item is completed
   &:after {
     content: '';
     position: absolute;
@@ -78,7 +104,7 @@
     width: 0;
     height: 100px;
     display: block;
-    background: rgba(195, 195, 195, 0.9);
+    background: rgba(224, 224, 224, 0.9);
     transition: all 500ms ease-in-out;
   }
 

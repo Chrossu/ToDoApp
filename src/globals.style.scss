@@ -8,7 +8,7 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
-  background-image: linear-gradient(to right, $primary-color 30%, $secondary-color);
+  background-image: linear-gradient(to bottom, $primary-color 30%,rgb(18, 107, 143), $secondary-color);
   background-repeat: no-repeat;
   color: #efefef;
 }

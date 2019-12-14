@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import FilterSection from './components/filter-section/filter-section.component';
-import TodoAdd from './components/todo-add/todo-add.component';
-import TodoList from './components/todo-list/todo-list.component';
+import Homepage from './pages/homepage';
+import TodoDetails from './pages/todo-details/todo-details';
 
 import './globals.style.scss'
+import { Route } from 'react-router-dom';
 
 const App = () => (
-  <div>
-    <FilterSection />
-    <TodoList />
-    <TodoAdd />
-  </div>
+  <Fragment>
+    <Route exact path="/" component={Homepage} />
+    <Route path="/todo" component={TodoDetails} />
+  </Fragment>
 )
 
 export default App;

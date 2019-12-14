@@ -22,7 +22,7 @@ const TodoList = ({ todos, toggleTodo }) => (
 );
 
 const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todo, state.filter)
+  todos: getVisibleTodos(state.todo.todos, state.filter)
 });
 
 const mapDispatchToProps = dispatch => ({
