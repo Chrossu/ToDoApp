@@ -1,6 +1,6 @@
-import React from 'react'
-import FilterLink from '../../containers/FilterLink'
-import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../../redux/filter/filter.types'
+import React from 'react';
+import FilterLink from '../../containers/FilterLink';
+import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../../redux/filter/filter.types';
 
 const Footer = () => (
   <div>
@@ -9,6 +9,6 @@ const Footer = () => (
     <FilterLink filter={SHOW_ACTIVE}>Active</FilterLink>
     <FilterLink filter={SHOW_COMPLETED}>Completed</FilterLink>
   </div>
-)
+);
 
-export default Footer
+export default Footer;

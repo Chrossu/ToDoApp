@@ -1,11 +1,18 @@
 import { ADD_TODO, TOGGLE_TODO } from './todo.types';
 
-export const addTodo = todo => ({
-  type: ADD_TODO,
-  payload: todo
+let nextTodoId = 0
+export const addTodo = text => ({
+  type: 'ADD_TODO',
+  id: nextTodoId++,
+  text
+})
+
+export const setVisibilityFilter = filter => ({
+  type: 'SET_VISIBILITY_FILTER',
+  filter
 })
 
 export const toggleTodo = id => ({
-  type: TOGGLE_TODO,
-  payload: id
+  type: 'TOGGLE_TODO',
+  id
 })
