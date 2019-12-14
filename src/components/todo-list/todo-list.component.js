@@ -10,7 +10,7 @@ import './todo-list.style.scss';
 
 const TodoList = ({ todos, toggleTodo }) => (
   <div className="todo-list">
-    <h3 className="title">Daily Tasks</h3>
+    <h3 className="title" onClick={() => window.location.reload()}>Daily Tasks</h3>
     <ul>
       {
         todos.map(todo =>

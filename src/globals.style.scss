@@ -1,3 +1,6 @@
+$primary-color: #0C2E8A;
+$secondary-color: #50D8AF;
+
 html {
   height: 100%;
 }
@@ -5,7 +8,7 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
-  background-image: linear-gradient(to right, #0C2E8A 30%, #50D8AF);
+  background-image: linear-gradient(to right, $primary-color 30%, $secondary-color);
   background-repeat: no-repeat;
   color: #efefef;
 }

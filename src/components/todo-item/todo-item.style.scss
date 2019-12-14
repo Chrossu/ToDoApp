@@ -1,0 +1,48 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  margin: 15px 0;
+  background-color: white;
+  border-radius: 5px;
+
+  .circle-todo {
+    min-height: 20px;
+    min-width: 20px;
+    margin: 0 10px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+
+    &:active {
+      background-color: #50D8AF;
+    }
+  }
+
+  li {
+    padding: 10px;
+    color: black;
+
+    &.line-through {
+      text-decoration: line-through;
+      text-decoration-color: #666;
+    }
+  }
+
+  // Border left color for every n even and odd list item
+  &:nth-child(1n) {
+    border-left: 2px solid #50d8af;
+  }
+
+  &:nth-child(2n) {
+    border-left: 2px solid #f14090;
+  }
+
+  &:nth-child(3n) {
+    border-left: 2px solid #87ddda;
+  }
+
+  &:nth-child(4n) {
+    border-left: 2px solid #ffd475;
+  }
+}
