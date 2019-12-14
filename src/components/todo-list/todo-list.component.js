@@ -1,18 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Todo from '../todo-item/todo-item';
+
+import Todo from '../todo-item/todo-item.component';
 import { getVisibleTodos } from '../../redux/todo/todo.utils';
 import { toggleTodo } from '../../redux/todo/todo.actions';
 
+import './todo-list.style.scss';
+
 const TodoList = ({ todos, toggleTodo }) => (
-  <ul>
-    {
-      todos.map(todo =>
-        <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-      )
-    }
-  </ul>
+  <div className="todo-list">
+    <h3 className="title">Daily Tasks</h3>
+    <ul>
+      {
+        todos.map(todo =>
+          <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
+        )
+      }
+    </ul>
+  </div>
 );
 
 const mapStateToProps = state => ({

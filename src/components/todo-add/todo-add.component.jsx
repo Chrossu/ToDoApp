@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../../redux/todo/todo.actions'
 import uuid from 'uuid';
+import { connect } from 'react-redux'
 
-const AddTodo = ({ dispatch }) => {
+import { addTodo } from '../../redux/todo/todo.actions'
+import { ReactComponent as AddButton } from '../../assets/add-button.svg'
+import './todo-add.style.scss';
+
+const TodoAdd = ({ dispatch }) => {
   const [task, setTask] = useState('');
 
   const onSubmit = e => {
@@ -18,21 +21,21 @@ const AddTodo = ({ dispatch }) => {
         completed: false
       }
       dispatch(addTodo(newTask))
-      
+
       // Clear form after dispatch
       setTask('');
     }
 
   }
-  
+
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <div className="todo-add">
+      <div className="form">
         <input type="text" name="task" value={task} onChange={e => setTask(e.target.value)} />
-        <button type="submit">Add Todo</button>
-      </form>
+        <AddButton onClick={onSubmit} className="add-btn" />
+      </div>
     </div>
   )
 }
 
-export default connect()(AddTodo)
+export default connect()(TodoAdd)

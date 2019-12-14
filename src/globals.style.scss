@@ -1,0 +1,23 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  background-image: linear-gradient(to right, #0C2E8A 30%, #50D8AF);
+  background-repeat: no-repeat;
+  color: #efefef;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}

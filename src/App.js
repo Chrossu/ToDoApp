@@ -1,13 +1,16 @@
 import React from 'react';
-import Footer from './components/filter-section/filter-section-component';
-import AddTodo from './components/todo-add/todo-add.component';
-import TodoList from './components/todos-list/todos-list.component';
+
+import FilterSection from './components/filter-section/filter-section.component';
+import TodoAdd from './components/todo-add/todo-add.component';
+import TodoList from './components/todo-list/todo-list.component';
+
+import './globals.style.scss'
 
 const App = () => (
   <div>
-    <AddTodo />
+    <FilterSection />
     <TodoList />
-    <Footer />
+    <TodoAdd />
   </div>
 )
 
