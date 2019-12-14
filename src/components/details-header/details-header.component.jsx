@@ -7,9 +7,7 @@ const FilterSection = ({ current }) => {
 
   return (
     <div className="details-header">
-      <div className="img">
         <h4>{current.text}</h4>
-      </div>
       <h3>Todos Management</h3>
     </div>
   )

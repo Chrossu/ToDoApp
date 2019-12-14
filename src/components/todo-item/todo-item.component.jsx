@@ -24,15 +24,10 @@ const TodoItem = ({ onClick, id, completed, text, history, setCurrent }) => {
 
   return (
     <div className={`todo-item ${completed ? 'completed' : ''}`}>
-      <div className="left-container">
-        <CircleTodo onClick={onClick} className="circle-todo" />
-        <li>
-          {text}
-        </li>
-      </div>
-      <div className="right-container">
-        <List onClick={handleClick} className="list" />
-      </div>
+      <CircleTodo onClick={onClick} className="circle-todo" />
+      <li onClick={handleClick} className="details-container">
+        {text}
+      </li>
       <Cancel className="cancel-btn" />
     </div>
   )
