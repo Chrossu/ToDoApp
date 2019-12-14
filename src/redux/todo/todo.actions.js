@@ -1,12 +1,11 @@
-let nextTodoId = 0;
+import { ADD_TODO, TOGGLE_TODO } from './todo.types';
 
-export const addTodo = text => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
+export const addTodo = todo => ({
+  type: ADD_TODO,
+  payload: todo
 })
 
 export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id
+  type: TOGGLE_TODO,
+  payload: id
 })
