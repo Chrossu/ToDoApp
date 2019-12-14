@@ -10,14 +10,14 @@ import './todo-list.style.scss';
 
 const TodoList = ({ todos, toggleTodo }) => (
   <div className="todo-list">
-    <h4 className="title" onClick={() => window.location.reload()}>Daily Tasks</h4>
-    <ul>
+    <h4 className="title">Daily Tasks</h4>
+    <div className="todo-list-container">
       {
         todos.map(todo =>
           <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
         )
       }
-    </ul>
+    </div>
   </div>
 );
 

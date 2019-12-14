@@ -1,7 +1,50 @@
 .filter-section {
-  height: 50px;
-  width: 100%;
-  background-image: linear-gradient(to right, #0C2E8A 30%, #50D8AF);
-  border-radius: 40px;
-  padding: 5px 10px;
+  background-image: linear-gradient(to bottom, rgb(29, 82, 218), rgb(103, 147, 235));
+  height: 80px;
+  z-index: 4;
+
+  h3 {
+    padding-top: 10px;
+    text-align: center;
+    color: #efefef;
+    font-weight: 300;
+
+    .secondary-color {
+      color: #50D8AF;
+    }
+  }
+  
+  .filter-section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 45px;
+    left: 5%;
+    padding: 20px;
+    height: 70px;
+    width: 90%;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 4;
+
+    button {
+      text-align: center;
+      border: none;
+      background: inherit;
+      margin: 0px;
+      min-width: 78px;
+      padding: 10px 5px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 2px;
+      border-bottom: 2px solid transparent;
+
+      &.border {
+        transition: all 1.5s ease;
+        border-bottom: 2px solid #50D8AF;
+      }
+    }
+  }
 }
