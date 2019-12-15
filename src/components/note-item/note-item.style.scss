@@ -14,18 +14,11 @@
   overflow: visible;
   z-index: 1;
 
-  .circle-todo {
+  .edit-note {
     min-height: 20px;
     min-width: 20px;
     margin: 0 10px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
     z-index: 2;
-    // padding: 10px 0;
-
-    &:active {
-      background-color: #50d8af;
-    }
   }
 
   .details-container {
@@ -33,12 +26,6 @@
     align-items: center;
     width: 90%;
     height: 100%;
-
-    .list {
-      height: 20px;
-      width: 20px;
-      fill: #0C2E8A;
-    }
   }
 
   .cancel-btn {
@@ -47,34 +34,5 @@
     fill: rgb(199, 39, 39);
     z-index: 2;
     margin: 0 10px;
-  }
-
-  // Border left and circle color for every n even and odd list item
-  &:nth-child(1n) {
-    border-left: 2px solid #50d8af;
-
-    .circle-todo {
-      fill: #50d8af;
-
-      &:active {
-        background-color: #50d8af;
-      }
-    }
-  }
-
-  // Effect when item is completed
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 0;
-    height: 100%;
-    display: block;
-    background: rgba(224, 224, 224, 0.9);
-    transition: all 500ms ease-in-out;
-  }
-
-  &.completed:after {
-    width: 100%;
   }
 }

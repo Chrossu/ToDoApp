@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { setCurrent, deleteTodo } from '../../redux/todo/todo.actions'
+import { setCurrent, deleteTodo, toggleTodo } from '../../redux/todo/todo.actions'
 import { ReactComponent as CircleTodo } from '../../assets/circleTodo.svg'
 import { ReactComponent as Cancel } from '../../assets/cancel.svg'
 
 import './todo-item.style.scss';
 
-const TodoItem = ({ onClick, id, completed, text, history, setCurrent, deleteTodo }) => {
+const TodoItem = ({ toggleTodo, id, completed, text, history, setCurrent, deleteTodo }) => {
   const handleClick = () => {
     let todo = {
       id,
@@ -17,13 +17,13 @@ const TodoItem = ({ onClick, id, completed, text, history, setCurrent, deleteTod
       completed
     }
 
-    setCurrent(todo);
+    setCurrent(id);
     history.push('todo')
   }
 
   return (
     <div className={`todo-item ${completed ? 'completed' : ''}`}>
-      <CircleTodo onClick={onClick} className="circle-todo" />
+      <CircleTodo onClick={() => toggleTodo(id)} className="circle-todo" />
       <li onClick={handleClick} className="details-container">
         <span className={`${completed ? 'completed-text' : ''}`}>{text}</span>
       </li>
@@ -33,11 +33,11 @@ const TodoItem = ({ onClick, id, completed, text, history, setCurrent, deleteTod
 }
 
 TodoItem.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
   setCurrent: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired
 };
 
-export default withRouter(connect(null, { setCurrent, deleteTodo })(TodoItem));
+export default withRouter(connect(null, { setCurrent, deleteTodo, toggleTodo })(TodoItem));

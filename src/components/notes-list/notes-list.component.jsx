@@ -3,35 +3,31 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import NoteItem from '../note-item/note-item.component';
-import { getVisibleTodos } from '../../redux/todo/todo.utils';
-import { toggleTodo } from '../../redux/todo/todo.actions';
+import { getNotesFromTodo } from '../../redux/todo/todo.utils';
 
 import './notes-list.style.scss';
 
-const NotesList = ({ todos, toggleTodo }) => (
+const NotesList = ({ notes, todos }) => (
   <div className="notes-list">
     <h4 className="title">Notes</h4>
     <div className="notes-list-container">
       {
-        todos.map(todo =>
-          <NoteItem key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-        )
+        notes ? notes.map(note =>
+          <NoteItem key={note.id} {...note} /> )
+          :
+          <h1>Miau</h1>
       }
     </div>
   </div>
 );
 
 const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todo.todos, state.filter)
-});
-
-const mapDispatchToProps = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id))
+  todos: state.todo.todos,
+  notes: state.todo.current.notes
 });
 
 NotesList.propTypes = {
-  todos: PropTypes.array.isRequired,
-  toggleTodo: PropTypes.func.isRequired
+  notes: PropTypes.array
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotesList);
+export default connect(mapStateToProps)(NotesList);

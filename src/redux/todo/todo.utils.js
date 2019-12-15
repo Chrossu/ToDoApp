@@ -13,15 +13,27 @@ export const getVisibleTodos = (todos, filter) => {
   }
 };
 
-export const addNote = (tasks, paramTaskId, noteToAdd) => {
-  const taskExists = tasks.find(task => task.id === paramTaskId);
+export const addNote = (todos, paramTodoId, noteToAdd) => {
+  const todoExists = todos.find(task => task.id === paramTodoId);
 
-  if (taskExists) {
-    return tasks.map(task =>
-      task.id === paramTaskId ?
-        {...task, notes: task.notes ? [...task.notes, noteToAdd] : [noteToAdd] }
+  if (todoExists) {
+    return todos.map(todo =>
+      todo.id === paramTodoId ?
+        {...todo, notes: todo.notes ? [...todo.notes, noteToAdd] : [noteToAdd] }
         :
-        task
+        todo
     )
+  }
+}
+
+export const setCurrentTodo = (todos, paramTodoId) => {
+  return todos.find(task => task.id === paramTodoId);
+}
+
+export const getNotesFromTodo = (todos, todoId) => {
+  const todoExists = todos.find(todo => todo.id === todoId);
+
+  if(todoExists) {
+    return todoExists.notes;
   }
 }

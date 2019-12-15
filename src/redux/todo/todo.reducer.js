@@ -1,5 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, DELETE_TODO } from './todo.types';
-import { addNote } from './todo.utils';
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, DELETE_TODO, GET_NOTES } from './todo.types';
+import { addNote, setCurrentTodo } from './todo.utils';
 
 const initialState = {
   todos: [],
@@ -21,18 +21,13 @@ const todos = (state = initialState, action) => {
     case SET_CURRENT:
       return {
         ...state,
-        current: action.payload
-      }
-    case ADD_NOTE:
-      return {
-        ...state,
-        todos: addNote(state.todos, action.id, action.payload)
+        current: setCurrentTodo(state.todos, action.payload)
       }
     case DELETE_TODO:
       return {
         ...state,
         todos: state.todos.filter(todo => todo.id !== action.payload)
-      }  
+      }
     case TOGGLE_TODO:
       return {
         ...state,
@@ -41,6 +36,11 @@ const todos = (state = initialState, action) => {
             ? { ...todo, completed: !todo.completed }
             : todo
         )
+      }
+    case ADD_NOTE:
+      return {
+        ...state,
+        todos: addNote(state.todos, action.id, action.payload)
       }
     default:
       return state

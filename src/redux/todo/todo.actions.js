@@ -1,19 +1,13 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, DELETE_TODO } from './todo.types';
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, DELETE_TODO, ADD_NOTE, GET_NOTES } from './todo.types';
 
-export const addTodo = task => ({
+export const addTodo = todo => ({
   type: ADD_TODO,
-  payload: task
+  payload: todo
 })
 
-export const addNote = (id, note) => ({
-  type: ADD_NOTE,
-  id,
-  payload: note
-})
-
-export const setCurrent = task => ({
+export const setCurrent = id => ({
   type: SET_CURRENT,
-  payload: task
+  payload: id
 })
 
 export const toggleTodo = id => ({
@@ -24,4 +18,15 @@ export const toggleTodo = id => ({
 export const deleteTodo = id => ({
   type: DELETE_TODO,
   payload: id
+})
+
+export const getNotes = id => ({
+  type: GET_NOTES,
+  payload: id
+})
+
+export const addNote = (id, note) => ({
+  type: ADD_NOTE,
+  id,
+  payload: note
 })

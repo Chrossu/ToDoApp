@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import uuid from 'uuid';
 import { connect } from 'react-redux'
 
-import { addNote } from '../../redux/todo/todo.actions'
+import { addNote, setCurrent } from '../../redux/todo/todo.actions'
 import { ReactComponent as AddButton } from '../../assets/add-button.svg'
 import './note-add.style.scss';
 
-const TodoAdd = ({ current, dispatch }) => {
+const TodoAdd = ({ current, addNote, setCurrent }) => {
   const [note, setNote] = useState('');
 
   const onSubmit = e => {
@@ -20,8 +20,8 @@ const TodoAdd = ({ current, dispatch }) => {
         note
       }
 
-      dispatch(addNote(current.id, newNote))
-
+      addNote(current.id, newNote)
+      setCurrent(current.id);
       // Clear form after dispatch
       setNote('');
     }
@@ -41,4 +41,4 @@ const mapStateToProps = state => ({
   current: state.todo.current
 })
 
-export default connect(mapStateToProps)(TodoAdd)
+export default connect(mapStateToProps, { addNote, setCurrent })(TodoAdd)
