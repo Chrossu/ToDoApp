@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import { setCurrent } from '../../redux/todo/todo.actions'
 import { ReactComponent as CircleTodo } from '../../assets/circleTodo.svg'
-import { ReactComponent as List } from '../../assets/list.svg'
 import { ReactComponent as Cancel } from '../../assets/cancel.svg'
 
 import './todo-item.style.scss';

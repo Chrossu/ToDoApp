@@ -1,16 +1,48 @@
 .details-header {
-  height: 240px;
+  padding: 45px 20px 0;
+  background: rgb(46,8,51);
+  background: linear-gradient(90deg, rgba(46,8,51,1) 21%, rgb(74, 46, 105) 100%);
+  height: 200px;
   z-index: 2;
-  background-color: rgba(6, 11, 85, 0.418);
 
-  h3 {
-    padding-top: 10px;
-    text-align: center;
-    color: #efefef;
-    font-weight: 300;
+  .todo-details {
+    height: 65%;
+    width: 100%;
+    // background-color: red;
 
-    .secondary-color {
-      color: #50D8AF;
+    h2 {
+      padding-top: 10px;
+      text-align: left;
+      color: #efefef;
+      font-weight: 200;
+      margin-bottom: 3px;
+  
+      .secondary-color {
+        color: #50D8AF;
+      }
+    }
+  
+    time {
+      font-size: 0.9rem;
+      font-weight: 400;
     }
   }
+
+  .todo-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 35%;
+    width: 100%;
+
+    p {
+      font-weight: 200;
+    }
+
+    span {
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+  }
+
 }

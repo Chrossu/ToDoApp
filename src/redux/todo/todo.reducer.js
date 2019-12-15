@@ -2,7 +2,12 @@ import { ADD_TODO, TOGGLE_TODO, SET_CURRENT } from './todo.types'
 
 const initialState = {
   todos: [],
-  current: null
+  current: {
+    id: 1,
+    text: 'Testeo a Africa',
+    active: true,
+    date: new Date()
+  }
 }
 
 const todos = (state = initialState, action) => {

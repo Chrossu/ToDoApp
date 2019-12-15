@@ -1,14 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Moment from 'react-moment'
 
 import './details-header.style.scss'
 
 const FilterSection = ({ current }) => {
-
+  const { text, active, date } = current;
   return (
     <div className="details-header">
-        <h4>{current.text}</h4>
-      <h3>Todos Management</h3>
+      <div className="todo-details">
+        <h2>{text}</h2>
+        <Moment fromNow>{date}</Moment>
+      </div>
+      <div className="todo-stats">
+        <p>1 Notes </p>
+        <p>Status: <span>{active ? 'Active' : 'Completed'}</span> </p>
+      </div>
     </div>
   )
 };
