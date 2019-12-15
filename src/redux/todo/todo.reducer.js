@@ -3,7 +3,8 @@ import { addNote, setCurrentTodo, removeNote } from './todo.utils';
 
 const initialState = {
   todos: [],
-  current: {}
+  current: null,
+  currentNote: null
 }
 
 const todos = (state = initialState, action) => {

@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import uuid from 'uuid';
+import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux'
 
 import { addNote, setCurrent } from '../../redux/todo/todo.actions'
+import { selectCurrentTodoId } from '../../redux/todo/todo.selectors'
 import { ReactComponent as AddButton } from '../../assets/add-button.svg'
 import './note-add.style.scss';
 
-const TodoAdd = ({ current, addNote, setCurrent }) => {
+const TodoAdd = ({ currentId, addNote, setCurrent }) => {
   const [note, setNote] = useState('');
 
   const onSubmit = e => {
@@ -20,8 +22,8 @@ const TodoAdd = ({ current, addNote, setCurrent }) => {
         note
       }
 
-      addNote(current.id, newNote)
-      setCurrent(current.id);
+      addNote(currentId, newNote)
+      setCurrent(currentId);
       // Clear form after dispatch
       setNote('');
     }
@@ -37,8 +39,8 @@ const TodoAdd = ({ current, addNote, setCurrent }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  current: state.todo.current
+const mapStateToProps = createStructuredSelector({
+  currentId: selectCurrentTodoId
 })
 
 export default connect(mapStateToProps, { addNote, setCurrent })(TodoAdd)

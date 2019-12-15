@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
 
 import Todo from '../todo-item/todo-item.component';
 import { getVisibleTodos } from '../../redux/todo/todo.utils';
-
+import { selectVisibleTodos, getVisibilityFilter } from '../../redux/filter/filter.selectors';
 import './todo-list.style.scss';
 
 const TodoList = ({ todos, filterType }) => {
@@ -24,24 +25,25 @@ const TodoList = ({ todos, filterType }) => {
   return (
     <div className="todo-list">
       <h4 className="title">Daily Tasks</h4>
-      {todos.length === 0 ?
-        titleReturn(filterType)
-        :
-        <div className="todo-list-container">
-          {
-            todos.map(todo =>
-              <Todo key={todo.id} {...todo} />
-            )
-          }
-        </div>
+      {
+        todos.length === 0 ?
+          titleReturn(filterType)
+          :
+          <div className="todo-list-container">
+            {
+              todos.map(todo =>
+                <Todo key={todo.id} {...todo} />
+              )
+            }
+          </div>
       }
     </div>
   )
 };
 
-const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todo.todos, state.filter),
-  filterType: state.filter
+const mapStateToProps = createStructuredSelector({
+  todos: selectVisibleTodos,
+  filterType: getVisibilityFilter
 });
 
 TodoList.propTypes = {
