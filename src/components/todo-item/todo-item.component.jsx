@@ -11,12 +11,6 @@ import './todo-item.style.scss';
 
 const TodoItem = ({ toggleTodo, id, completed, text, history, setCurrent, deleteTodo }) => {
   const handleClick = () => {
-    let todo = {
-      id,
-      text,
-      completed
-    }
-
     setCurrent(id);
     history.push('todo')
   }

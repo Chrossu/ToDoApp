@@ -4,7 +4,7 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const SET_CURRENT = 'SET_CURRENT';
 export const ADD_NOTE = 'ADD_NOTE';
 export const GET_NOTES = 'GET_NOTES';
-export const DELETE_TODO = 'DELETE_TODO';
+export const REMOVE_NOTE = 'REMOVE_NOTE';
 
 export const SHOW_ALL = 'SHOW_ALL';
 export const SHOW_COMPLETED = 'SHOW_COMPLETED'

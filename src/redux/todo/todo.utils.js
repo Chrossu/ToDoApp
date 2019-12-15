@@ -26,6 +26,27 @@ export const addNote = (todos, paramTodoId, noteToAdd) => {
   }
 }
 
+export const removeNote = (todos, paramTodoId, noteId) => {
+  const todoExists = todos.find(todo => todo.id === paramTodoId);
+
+  if (todoExists) {
+    return todos.map(todo =>
+      todo.id === paramTodoId ?
+        {...todo, notes: todo.notes.filter(note => note.id !== noteId) }
+        :
+        todo
+    )
+  }
+}
+
+export const countNotes = (todos, paramTodoId) => {
+  const todoExists = todos.find(todo => todo.id === paramTodoId);
+
+  if (todoExists) {
+    return todoExists.notes.length()
+  }
+}
+
 export const setCurrentTodo = (todos, paramTodoId) => {
   return todos.find(task => task.id === paramTodoId);
 }

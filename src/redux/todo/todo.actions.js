@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, DELETE_TODO, ADD_NOTE, GET_NOTES } from './todo.types';
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, REMOVE_TODO, ADD_NOTE, GET_NOTES, REMOVE_NOTE } from './todo.types';
 
 export const addTodo = todo => ({
   type: ADD_TODO,
@@ -16,7 +16,7 @@ export const toggleTodo = id => ({
 })
 
 export const deleteTodo = id => ({
-  type: DELETE_TODO,
+  type: REMOVE_TODO,
   payload: id
 })
 
@@ -30,3 +30,10 @@ export const addNote = (id, note) => ({
   id,
   payload: note
 })
+
+export const removeNote = (todoId, noteId) => ({
+  type: REMOVE_NOTE,
+  todoId,
+  noteId
+})
+

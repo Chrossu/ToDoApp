@@ -1,14 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, DELETE_TODO, GET_NOTES } from './todo.types';
-import { addNote, setCurrentTodo } from './todo.utils';
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, REMOVE_TODO, REMOVE_NOTE } from './todo.types';
+import { addNote, setCurrentTodo, removeNote } from './todo.utils';
 
 const initialState = {
   todos: [],
-  current: {
-    id: 1,
-    text: 'Testeo a Africa',
-    active: true,
-    date: new Date()
-  }
+  current: {}
 }
 
 const todos = (state = initialState, action) => {
@@ -23,7 +18,7 @@ const todos = (state = initialState, action) => {
         ...state,
         current: setCurrentTodo(state.todos, action.payload)
       }
-    case DELETE_TODO:
+    case REMOVE_TODO:
       return {
         ...state,
         todos: state.todos.filter(todo => todo.id !== action.payload)
@@ -42,6 +37,11 @@ const todos = (state = initialState, action) => {
         ...state,
         todos: addNote(state.todos, action.id, action.payload)
       }
+    case REMOVE_NOTE:
+      return {
+        ...state, 
+        todos: removeNote(state.todos, action.todoId, action.noteId)
+      }  
     default:
       return state
   }

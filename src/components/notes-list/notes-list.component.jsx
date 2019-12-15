@@ -1,19 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 
 import NoteItem from '../note-item/note-item.component';
-import { getNotesFromTodo } from '../../redux/todo/todo.utils';
+import { selectNoteItems } from '../../redux/todo/todo.selectors';
 
 import './notes-list.style.scss';
 
-const NotesList = ({ notes, todos }) => (
+const NotesList = ({ notes }) => (
   <div className="notes-list">
     <h4 className="title">Notes</h4>
     <div className="notes-list-container">
       {
         notes ? notes.map(note =>
-          <NoteItem key={note.id} {...note} /> )
+          <NoteItem key={note.id} {...note} notesLength={notes && notes.length} /> )
           :
           <h1>Miau</h1>
       }
@@ -21,9 +22,8 @@ const NotesList = ({ notes, todos }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  todos: state.todo.todos,
-  notes: state.todo.current.notes
+const mapStateToProps = createStructuredSelector({
+  notes: selectNoteItems
 });
 
 NotesList.propTypes = {
