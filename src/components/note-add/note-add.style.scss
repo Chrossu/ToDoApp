@@ -5,8 +5,8 @@
   height: 75px;
   padding-left: 10px;
   bottom: 0;
-  border-radius: 8px 8px 0 0;
-  background: white;
+  border-radius: 5px 8px 0 0;
+  background: linear-gradient(90deg, #353535, #535353);
   border-top: 1px solid rgb(221, 221, 221);
   z-index: 3;
 
@@ -25,7 +25,7 @@
       border-radius: 3px;
       border: 1px solid #a8a8a8;
       margin-right: 0px;
-      background-color: #f6f6f6;
+      background-color: #eeeeee;
       color: #333;
 
       &:focus ~ .add-btn {
@@ -40,7 +40,7 @@
       margin-left: 20px;
       height: 32px;
       width: 15%;
-      fill: black;
+      fill: #efefef;
       transition: all 0.75s ease-in-out;
     }
   }

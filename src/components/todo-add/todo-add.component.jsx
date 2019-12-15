@@ -31,7 +31,7 @@ const TodoAdd = ({ dispatch }) => {
   return (
     <div className="todo-add">
       <div className="form">
-        <input type="text" name="task" value={task} onChange={e => setTask(e.target.value)} />
+        <input type="text" name="task" value={task} placeholder="Type your Task" onChange={e => setTask(e.target.value)} />
         <AddButton onClick={onSubmit} className="add-btn" />
       </div>
     </div>

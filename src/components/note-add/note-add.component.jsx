@@ -30,7 +30,7 @@ const TodoAdd = ({ current, dispatch }) => {
   return (
     <div className="note-add">
       <div className="form">
-        <input type="text" name="note" value={note} onChange={e => setNote(e.target.value)} />
+        <input type="text" name="note" value={note} placeholder="Add a Note to this Task" onChange={e => setNote(e.target.value)} />
         <AddButton onClick={onSubmit} className="add-btn" />
       </div>
     </div>

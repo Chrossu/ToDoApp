@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { setCurrent, deleteTodo } from '../../redux/todo/todo.actions'
+import { setCurrent } from '../../redux/todo/todo.actions'
 import { ReactComponent as CircleTodo } from '../../assets/circleTodo.svg'
 import { ReactComponent as Cancel } from '../../assets/cancel.svg'
 
-import './todo-item.style.scss';
+import './note-item.style.scss';
 
-const TodoItem = ({ onClick, id, completed, text, history, setCurrent, deleteTodo }) => {
+const NoteItem = ({ onClick, id, completed, text, history, setCurrent }) => {
   const handleClick = () => {
     let todo = {
       id,
@@ -25,19 +25,18 @@ const TodoItem = ({ onClick, id, completed, text, history, setCurrent, deleteTod
     <div className={`todo-item ${completed ? 'completed' : ''}`}>
       <CircleTodo onClick={onClick} className="circle-todo" />
       <li onClick={handleClick} className="details-container">
-        <span className={`${completed ? 'completed-text' : ''}`}>{text}</span>
+        {text}
       </li>
-      <Cancel onClick={() => deleteTodo(id)} className="cancel-btn" />
+      <Cancel className="cancel-btn" />
     </div>
   )
 }
 
-TodoItem.propTypes = {
+NoteItem.propTypes = {
   onClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
-  setCurrent: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired
+  setCurrent: PropTypes.func.isRequired
 };
 
-export default withRouter(connect(null, { setCurrent, deleteTodo })(TodoItem));
+export default withRouter(connect(null, { setCurrent })(NoteItem));

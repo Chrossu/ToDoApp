@@ -1,4 +1,4 @@
-.todo-item {
+.note-item {
   display: flex;
   position: relative;
   align-items: center;
@@ -9,6 +9,7 @@
   color: #222;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-color: white;
+  border-right: 2px solid #310D3A;
   border-radius: 5px;
   overflow: visible;
   z-index: 1;
@@ -20,7 +21,7 @@
     border-radius: 50%;
     transition: all 0.2s ease;
     z-index: 2;
-    margin-right: 15px;
+    // padding: 10px 0;
 
     &:active {
       background-color: #50d8af;
@@ -30,7 +31,7 @@
   .details-container {
     display: flex;
     align-items: center;
-    width: 85%;
+    width: 90%;
     height: 100%;
 
     .list {
@@ -44,7 +45,7 @@
     height: 25px;
     width: 25px;
     fill: rgb(199, 39, 39);
-    z-index: 99;
+    z-index: 2;
     margin: 0 10px;
   }
 
@@ -61,42 +62,6 @@
     }
   }
 
-  &:nth-child(2n) {
-    border-left: 2px solid #f14090;
-
-    .circle-todo {
-      fill: #f14090;
-      
-      &:active {
-        background-color: #f14090;
-      }
-    }
-  }
-
-  &:nth-child(3n) {
-    border-left: 2px solid #0C2E8A;
-
-    .circle-todo {
-      fill: #0C2E8A;
-
-      &:active {
-        background-color: #0C2E8A;
-      }
-    }
-  }
-
-  &:nth-child(4n) {
-    border-left: 2px solid #ffd475;
-
-    .circle-todo {
-      fill: #ffd475;
-
-      &:active {
-        background-color: #ffd475;
-      }
-    }
-  }
-
   // Effect when item is completed
   &:after {
     content: '';
@@ -107,15 +72,9 @@
     display: block;
     background: rgba(224, 224, 224, 0.9);
     transition: all 500ms ease-in-out;
-    z-index: -1;
   }
 
   &.completed:after {
     width: 100%;
-  }
-
-  // Select the span and change the color when the task it's completed
-  span.completed-text {
-    color:#999 ;
   }
 }

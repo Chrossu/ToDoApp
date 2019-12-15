@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE } from './todo.types';
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, DELETE_TODO } from './todo.types';
 
 export const addTodo = task => ({
   type: ADD_TODO,
@@ -19,4 +19,9 @@ export const setCurrent = task => ({
 export const toggleTodo = id => ({
   type: TOGGLE_TODO,
   id
+})
+
+export const deleteTodo = id => ({
+  type: DELETE_TODO,
+  payload: id
 })

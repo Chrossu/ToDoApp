@@ -2,19 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Todo from '../todo-item/todo-item.component';
+import NoteItem from '../note-item/note-item.component';
 import { getVisibleTodos } from '../../redux/todo/todo.utils';
 import { toggleTodo } from '../../redux/todo/todo.actions';
 
 import './notes-list.style.scss';
 
 const NotesList = ({ todos, toggleTodo }) => (
-  <div className="comments-list">
+  <div className="notes-list">
     <h4 className="title">Notes</h4>
-    <div className="comments-list-container">
+    <div className="notes-list-container">
       {
         todos.map(todo =>
-          <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
+          <NoteItem key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
         )
       }
     </div>
