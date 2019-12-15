@@ -1,4 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT } from './todo.types'
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE } from './todo.types';
+import { addNote } from './todo.utils';
 
 const initialState = {
   todos: [],
@@ -21,6 +22,11 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         current: action.payload
+      }
+    case ADD_NOTE:
+      return {
+        ...state,
+        todos: addNote(state.todos, action.id, action.payload)
       }
     case TOGGLE_TODO:
       return {

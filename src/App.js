@@ -9,7 +9,7 @@ import { Route } from 'react-router-dom';
 const App = () => (
   <Fragment>
     <Route exact path="/" component={Homepage} />
-    <Route path="/todo" component={TodoDetails} />
+    <Route exact path="/todo" component={TodoDetails} />
   </Fragment>
 )
 
