@@ -8,7 +8,6 @@
   .todo-details {
     height: 65%;
     width: 100%;
-    // background-color: red;
 
     h2 {
       padding-top: 10px;
@@ -24,7 +23,7 @@
   
     time {
       color: #dbdbdb;
-      padding-left: 3px;
+      padding-left: 2px;
       font-size: 0.9rem;
       font-weight: 400;
     }
@@ -47,4 +46,7 @@
     }
   }
 
+  @media screen and (min-width: 510px) {
+    padding: 45px 40px 0;
+  }
 }

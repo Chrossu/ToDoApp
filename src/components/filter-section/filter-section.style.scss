@@ -46,17 +46,22 @@
       border-bottom: 2px solid transparent;
 
       &.border {
-        transition: all 1.5s ease;
+        transition: all 1.25s ease;
         border-bottom: 2px solid #50d8af;
       }
 
-      @media screen and (max-width: 400px) {
-        padding: 10px;
+      @media screen and (min-width: 400px) {
+        margin: 0 10px;
       }
 
-      @media screen and (max-width: 510px) {
-        padding: 10px 30px;
-    }
+      @media screen and (min-width: 510px) {
+        margin: 0 20px;
+      }
+
+      @media screen and (min-width: 800px) {
+        margin: 0 50px;
+        font-weight: bolder;
+      }
     }
   }
 }
