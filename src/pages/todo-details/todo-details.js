@@ -12,7 +12,6 @@ import { ReactComponent as BackButton } from '../../assets/back-button.svg';
 import './todo-details.style.scss';
 
 const TodoDetailsPage = ({ current, history }) => {
-  console.log(current);
   if (current === null) {
     return (
       <Fragment>

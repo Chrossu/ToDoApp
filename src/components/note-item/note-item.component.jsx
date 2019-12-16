@@ -4,14 +4,14 @@ import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 
-import { setCurrent, removeNote } from '../../redux/todo/todo.actions'
+import { setCurrent, removeNote, setNote } from '../../redux/todo/todo.actions'
 import { selectCurrentTodoId } from '../../redux/todo/todo.selectors';
 import { ReactComponent as Edit } from '../../assets/edit.svg'
 import { ReactComponent as Cancel } from '../../assets/cancel.svg'
 
 import './note-item.style.scss';
 
-const NoteItem = ({ id, note, removeNote, currentId, setCurrent }) => {
+const NoteItem = ({ id, note, removeNote, currentId, setCurrent, setNote }) => {
   const onClick = (currentId, id) => {
     removeNote(currentId, id);
     setCurrent(currentId);    
@@ -19,7 +19,7 @@ const NoteItem = ({ id, note, removeNote, currentId, setCurrent }) => {
 
   return (
     <div className="note-item">
-      <Edit className="edit-note" />
+      <Edit onClick={() => setNote({ todoId: currentId, id, note })} className="edit-note" />
       <li className="details-container">
         <p>{note}</p>
       </li>
@@ -37,4 +37,4 @@ NoteItem.propTypes = {
   removeNote: PropTypes.func.isRequired
 };
 
-export default withRouter(connect(mapStateToProps, { setCurrent, removeNote })(NoteItem));
+export default withRouter(connect(mapStateToProps, { setCurrent, removeNote, setNote })(NoteItem));

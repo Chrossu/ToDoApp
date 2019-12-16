@@ -2,8 +2,9 @@ import { createSelector } from 'reselect';
 
 const getTodo = state => state.todo;
 
-export const selectTodoItems = createSelector(
-  []
+export const selectCurrentNote = createSelector(
+  [getTodo],
+  todo => todo.currentNote
 )
 
 export const selectCurrentTodo = createSelector(

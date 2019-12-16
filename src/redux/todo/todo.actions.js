@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, REMOVE_TODO, ADD_NOTE, GET_NOTES, REMOVE_NOTE } from './todo.types';
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, REMOVE_TODO, ADD_NOTE, GET_NOTES, REMOVE_NOTE, SET_NOTE, UPDATE_NOTE, RESET_NOTE } from './todo.types';
 
 export const addTodo = todo => ({
   type: ADD_TODO,
@@ -37,3 +37,17 @@ export const removeNote = (todoId, noteId) => ({
   noteId
 })
 
+export const setNote = (note) => ({
+  type: SET_NOTE,
+  payload: note
+})
+
+export const updateNote = (todoId, note) => ({
+  type: UPDATE_NOTE,
+  todoId,
+  payload: note
+})
+
+export const resetNote = () => ({
+  type: RESET_NOTE
+})

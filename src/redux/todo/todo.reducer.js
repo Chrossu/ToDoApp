@@ -1,5 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, REMOVE_TODO, REMOVE_NOTE } from './todo.types';
-import { addNote, setCurrentTodo, removeNote } from './todo.utils';
+import { ADD_TODO, TOGGLE_TODO, SET_CURRENT, ADD_NOTE, REMOVE_TODO, REMOVE_NOTE, SET_NOTE, UPDATE_NOTE, RESET_NOTE } from './todo.types';
+import { addNote, setCurrentTodo, removeNote, updateNote } from './todo.utils';
 
 const initialState = {
   todos: [],
@@ -42,7 +42,23 @@ const todos = (state = initialState, action) => {
       return {
         ...state, 
         todos: removeNote(state.todos, action.todoId, action.noteId)
-      }  
+      }
+    case UPDATE_NOTE:
+      return {
+        ...state, 
+        todos: updateNote(state.todos, action.todoId, action.payload),
+        current: updateNote(state.todos, action.todoId, action.payload)
+      }
+    case SET_NOTE:
+      return {
+        ...state,
+        currentNote: action.payload
+      }
+    case RESET_NOTE:
+      return {
+        ...state,
+        currentNote: null
+      }
     default:
       return state
   }

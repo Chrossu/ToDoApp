@@ -1,5 +1,9 @@
 .filter-section {
-  background-image: linear-gradient(to bottom, rgb(29, 82, 218), rgb(103, 147, 235));
+  background-image: linear-gradient(
+    to bottom,
+    rgb(29, 82, 218),
+    rgb(103, 147, 235)
+  );
   height: 80px;
   z-index: 4;
 
@@ -10,10 +14,10 @@
     font-weight: 300;
 
     .secondary-color {
-      color: #50D8AF;
+      color: #50d8af;
     }
   }
-  
+
   .filter-section-container {
     display: flex;
     justify-content: center;
@@ -43,8 +47,16 @@
 
       &.border {
         transition: all 1.5s ease;
-        border-bottom: 2px solid #50D8AF;
+        border-bottom: 2px solid #50d8af;
       }
+
+      @media screen and (max-width: 400px) {
+        padding: 10px;
+      }
+
+      @media screen and (max-width: 510px) {
+        padding: 10px 30px;
+    }
     }
   }
 }

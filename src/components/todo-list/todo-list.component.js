@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 
 import Todo from '../todo-item/todo-item.component';
-import { getVisibleTodos } from '../../redux/todo/todo.utils';
 import { selectVisibleTodos, getVisibilityFilter } from '../../redux/filter/filter.selectors';
 import './todo-list.style.scss';
 

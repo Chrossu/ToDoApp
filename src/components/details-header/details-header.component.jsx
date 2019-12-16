@@ -12,7 +12,7 @@ const FilterSection = ({ current, noteCount }) => {
   return (
     <div className="details-header">
       <div className="todo-details">
-        <h2>{text}</h2>
+        <h2>{text.charAt(0).toUpperCase() + text.slice(1)}</h2>
         <Moment fromNow>{date}</Moment>
       </div>
       <div className="todo-stats">

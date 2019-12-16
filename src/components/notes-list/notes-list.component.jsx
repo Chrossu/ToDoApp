@@ -11,12 +11,13 @@ import './notes-list.style.scss';
 const NotesList = ({ notes }) => (
   <div className="notes-list">
     <h4 className="title">Notes</h4>
+    {notes && notes.length === 0 && <h3 className="empty-message">This task does not have notes</h3>}
     <div className="notes-list-container">
       {
         notes ? notes.map(note =>
           <NoteItem key={note.id} {...note} notesLength={notes && notes.length} /> )
           :
-          <h1>Miau</h1>
+          <h4 className="empty-message">This task does not have notes</h4>
       }
     </div>
   </div>
@@ -30,4 +31,4 @@ NotesList.propTypes = {
   notes: PropTypes.array
 };
 
-export default connect(mapStateToProps)(NotesList);
+export default connect(mapStateToProps, { selectNoteItems })(NotesList);
